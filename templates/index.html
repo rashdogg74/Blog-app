@@ -3,7 +3,7 @@
 {% block content %}
 
     <!-- Hero image -->
-    <header class="py-5 bg-image-full" style="background-image: url('assets/images/mic.jpg')">
+    <header class="py-5 bg-image-full" style="background-image: url('/static/images/mic.jpg')">
         <div style="height: 20rem"></div>
         <div class="text-center my-5">
             <h1 class="text-white fs-3 fw-bolder">Welcome to The NewsBox</h1>
@@ -16,7 +16,7 @@
         <div class="container my-5">
             <div class="row justify-content-center">
                 {% for post in post_list %}
-                <div class="col-lg-6">
+                <div class="col-lg-8">
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
@@ -30,9 +30,12 @@
                                 </div>
                             </div>
                             <a href="#" class="post-link">
-                                <h2 class="card-title"></h2>
+                                <h9 class="card-title">{{ post.title }}</h9>
                             </a>
                             <hr>
+
+                            <!-- Need an if statement here so that post.upvotes is only visable if upvotes > 0 -->
+
                             <p class="card-text text-muted ">{{ post.created_on }} <i class="fa-solid fa-square-arrow-up"></i>{{ post.up_votes }}</p>
                         </div>
                     </div>
@@ -41,18 +44,18 @@
                 {% endfor %}
             </div>
         </div>
-        {% if is_paginated &}
+        {% if is_paginated %}
         <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center">
                 {% if page_obj.has_previous %}
                 <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
                 {% endif %}
                 {% if page_obj.has_next %}
-                <li><a href="?page={{ page_ obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+                <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
                 {% endif %}
             </ul>
         </nav>
         {% endif %}
     </section>
 
-    {% endblock %}
+{% endblock %}

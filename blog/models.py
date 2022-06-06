@@ -40,6 +40,7 @@ class Comment(models.Model):
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()
+    likes = models.ManyToManyField(User, related_name='comment_like', blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
 
     
