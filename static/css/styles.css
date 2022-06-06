@@ -74,6 +74,10 @@ img {
     padding-bottom: 0.5rem;
 }
 
+.bg-custom {
+    background-color: #04080b;
+}
+
 /* Addition to bootstrap styling */
 
 .container {
@@ -244,7 +248,3 @@ img {
     }
 }
 
-/* 
-#navbar {
-    background-color: #04080b;
-} */

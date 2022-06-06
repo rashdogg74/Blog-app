@@ -23,7 +23,7 @@
 
 <body>
     <!-- Responsive navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
         <div class="container">
             <a class="navbar-brand" href="">The Newsbox</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -32,7 +32,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">Categories</a></li>
                     {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link" href="#!">Log out</a></li>
                     {% else %}
@@ -52,21 +52,8 @@
 
 
     <!-- Footer-->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 text-white text-center">
-                    <p class="lead">Working Hours</p>
-                    <p>Monday - Friday 6:00 AM - 9:00 PM <br>
-                        Saturday - Sunday 10:00 AM - 2:00 PM</p>
-                </div>
-                <div class="col-lg-6 text-white text-center">
-                    <p class="lead">Address</p>
-                    <p>Calle Cabeza 13 <br>
-                        Madrid, 28012</p>
-                </div>
-            </div>
-        </div>
+    <footer class="py-5 bg-custom">
+
 
 
         <div class="social-media-icons col-xs-12">

@@ -33,15 +33,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-    def number_of_ups(self):
-        return self.up_votes.count()
 
-    def number_of_downs(self):
-        return self.down_votes.count()
-
-    # IS IT POSSIBLE TO DO THE BELOW????
-    # class Meta:
-    #     ordering = number_of_ups(self) - number_of_downs(self)
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")

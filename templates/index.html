@@ -11,43 +11,48 @@
         </div>
     </header>
 
-    <!-- Why choose section-->
+    <!-- Blog news stories-->
     <section class="py-5">
         <div class="container my-5">
             <div class="row justify-content-center">
+                {% for post in post_list %}
                 <div class="col-lg-6">
-                    <h2>Why Choose Paul Thomas PT services?</h2>
-                    <p class="lead">After 20+ years in the fitness industry, I feel like I have developed a deep
-                        understanding of the key barriers to an active healthy lifestyle as well
-                        as some of the major motivators to help people make a change.</p>
-                    <p class="mb-0">My goal is to help people realise their
-                        potential, and to do so I think it's important that people understand that we all start from
-                        different places. <br>
-                        Unfortunately, the rhythm, distraction, obligations, and stress of modern life present lots of
-                        obstacles for people to realise their
-                        their potential- that's where I come in!</p>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="image-container">
+                                {% if "placeholder" in post.featured_image.url %}
+                                <img class="card-img-top" src="https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80" alt="">
+                                {% else %}
+                                <img class="card-img-top" src="{{ post.featured_image.url }}" alt="">
+                                {% endif %}
+                                <div class="image-flash">
+                                    <p class="author">Submitted by: {{ post.author }}</p>
+                                </div>
+                            </div>
+                            <a href="#" class="post-link">
+                                <h2 class="card-title"></h2>
+                            </a>
+                            <hr>
+                            <p class="card-text text-muted ">{{ post.created_on }} <i class="fa-solid fa-square-arrow-up"></i>{{ post.up_votes }}</p>
+                        </div>
+                    </div>
+                    
                 </div>
+                {% endfor %}
             </div>
         </div>
-    </section>
-    <!-- Image element -->
-    <div class="py-5 bg-image-full" style="background-image: url('assets/images/kb.jpg')">
-        <div style="height: 30rem"></div>
-    </div>
-    <!-- What is the sweatbox-->
-    <section class="py-5">
-        <div class="container my-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <h2>What is The SweatBox?</h2>
-                    <p class="lead">The SweatBox is what we affectionately call our training facility in the heart of
-                        Madrid.</p>
-                    <p class="mb-0">It is our main base where I work with clients, for individual and pair personal
-                        training sessions as well as all our initial consultations, nutritional planning, and small
-                        group classes.</p>
-                </div>
-            </div>
-        </div>
+        {% if is_paginated &}
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+                {% endif %}
+                {% if page_obj.has_next %}
+                <li><a href="?page={{ page_ obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
     </section>
 
     {% endblock %}
