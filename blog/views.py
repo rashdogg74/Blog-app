@@ -26,6 +26,6 @@ class PostDetail(View):
             {
                 "post": post,
                 "comments": comments,
-                "up_voted": up_voted,
-                "down_voted": down_voted
+                # "up_voted": up_voted,
+                # "down_voted": down_voted
             })

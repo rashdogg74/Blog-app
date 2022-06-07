@@ -3,4 +3,90 @@
 {% block content %}
 
 
+<!-- Post detail-->
+<section class="py-5">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+                <h1 class="post-title">{{ post.title }}</h1>
+                <p class="post-category">{{ categories.cat_title }} | posted on {{ post.created_on }}</p>
+                <div class="image-container">
+                    {% if "placeholder" in post.featured_image.url %}
+                    <img class=""
+                        src="https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80"
+                        alt="">
+                    {% else %}
+                    <img class="" src="{{ post.featured_image.url }}" alt="">
+                    {% endif %}
+                </div>
+
+                <!-- Need an if statement here so that post.upvotes is only visable if upvotes > 0 -->
+                <p class="text-secondary"><i class="fa-solid fa-square-arrow-up"></i>{{ post.up_votes }} | Submitted by: {{ post.author }}</p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card-body">
+                    <!-- The post content goes inside the card-text. -->
+                    <!-- Use the | safe filter inside the template tags -->
+                    <p class="card-text ">
+                        {{ post.content | safe }}
+                    </p>
+                    <div class="row">
+                        <div class="col-1">
+                            {% with comments.count as total_comments %}
+                            <strong class="text-secondary"><i class="far fa-comments"></i>
+                                <!-- Our total_comments variable goes before the closing strong tag -->
+                                {{ total_comments }}</strong>
+                            {% endwith %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1">
+                <hr>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h3>Comments:</h3>
+                <div class="card-body">
+                    <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
+                    {% for comment in comments %}
+                    <div class="comments" style="padding: 10px;">
+                        <p class="font-weight-bold">
+                            <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
+                            {{ comment.name }}
+                            <span class=" text-muted font-weight-normal">
+                                <!-- The comment's created date goes here -->
+                                {{ comment.created_on }}
+                            </span> wrote:
+                        </p>
+                        <!-- The body of the comment goes before the | -->
+                        {{ comment.body | linebreaks }}
+                        <strong class="text-secondary"><i class="far fa-heart"></i> {{ comment.number_of_likes }} </strong>
+                    </div>
+                    <!-- Our for loop ends here -->
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- <div class="col-md-4 card mb-4  mt-3 ">
+                <div class="card-body">
+                    For later
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+
+</section>
+
 {% endblock %}
