@@ -22,7 +22,7 @@ class Post(models.Model):
     category = models.ManyToManyField(Categories, related_name='category', blank=False)
     featured_image = CloudinaryField('image', default='placeholder')
     slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="author")
+    submitted_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name="submitted_by")
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
