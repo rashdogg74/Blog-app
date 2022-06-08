@@ -49,9 +49,11 @@ class Comment(models.Model):
 
 class Upvote(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="post")
     up_votes = models.ManyToManyField(Post, related_name='up_votes', blank=True)
 
 
 class Downvote(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="post")
     down_votes = models.ManyToManyField(Post, related_name='down_votes', blank=True)
