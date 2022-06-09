@@ -102,9 +102,9 @@ For this project I have used the following features:
 #### Libraries
 
 ### 3rd Party Libraries
-1. [](https://) - JUSTIFICATION:  For the purposes of the project spec, I wanted to access and manipulate from googlesheets and to interact with the google API so I have chosen to use the gspread library for these functions.
+1. [Cloudinary](https://cloudinary.com/) - JUSTIFICATION:  For the purposes of the project spec, I wanted to host images uploaded by users to an external CDN. Cloudinary is an end-to-end image- and video-management solution for websites and mobile apps, covering everything from image and video uploads, storage, manipulations, optimizations to delivery.
 
-2. [](https://) - JUSTIFICATION:  For the purposes of the project spec, I wanted to be able to give the user visual feedback similar to the official game which gives color clues to help the users identify which letters they have in the correct position and which letters they have in the word but not in the correct position. 
+2. [](https://) - JUSTIFICATION:  For the purposes of the project spec, 
 
 ## Features
 
@@ -270,6 +270,7 @@ By forking this GitHub repository you are making a copy of the original to view 
 - **Heroku** - for deployment [Heroku](https://heroku.com/) 
 - **Bootstrap** - for styling [Bootstrap](https://getbootstrap.com/)
 - **Code Institute** - for a walkthrough project which allowed me to reuse certain lines of code. 
+- **Coding With Mitch** - for helpful resources on Custom User Models. [codingwithmitch](https://codingwithmitch.com/)
 - With the exception of the above, all code was written raw and occasional references to W3C schools, stackoverflow, youtube, slack. No code has been borrowed from other sources.
 
 ### Acknowledgments: 
