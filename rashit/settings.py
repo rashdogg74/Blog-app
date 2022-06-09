@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'blog',
+    'account',
     'django_summernote',
     'cloudinary',
 ]
@@ -71,6 +72,8 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTH_USER_MODEL = 'account.Account'
 
 WSGI_APPLICATION = 'rashit.wsgi.application'
 
