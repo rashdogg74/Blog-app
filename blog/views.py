@@ -18,7 +18,7 @@ class PostDetail(View):
         comments = post.comments.all().order_by('created_on')
         up_vote = False
         
-        # come back here 
+        
         # if up_vote.up_votes.filter(id=self.request.user.id).exists():
         #     up_vote = True
         
